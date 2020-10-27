@@ -23,7 +23,7 @@ var pages = [
     "demographics.html",      // demographic information
     "check_video.html",       // checks the users audio and video
     "command_video.html",     // videos
-    "questions.html",         // more questions
+    "pic_questions.html",         // more questions
 ];
 
 psiTurk.preloadPages(pages);
