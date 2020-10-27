@@ -22,13 +22,8 @@ var pages = [
     "instruct-1.html",        // instructions
     "demographics.html",      // demographic information
     "check_video.html",       // checks the users audio and video
-    "intro_video.html",       // first of our videos
-    "pretest.html",           // asking questions
-    "command_video.html",     // more videos
-    "response_video.html",    //
+    "command_video.html",     // videos
     "questions.html",         // more questions
-    "final_question.html",    //
-    "check_question.html"     // attention check question
 ];
 
 psiTurk.preloadPages(pages);
@@ -38,17 +33,20 @@ var instructionPages = [ // add as a list as many pages as you like
 ];
 
 // This contains the path to the introduction video
+// Joslyne: We don't have an intro video, not sure if psiturk requires this but commenting out for now
+/*
 var intro_vid = "/static/videos/introduction"
+*/
 // These variables are prefixes to the paths of the videos we want to show,
 // which change depending on the condition we are randomly assigned.
 var command_vid = ""
 var prefix = "/static/videos"
 var cond = ""
 var video_conditions = [
-  "toward_shrug",
-  "toward_hips",
-  "away_shrug",
-  "away_hips"
+  "FunDialog_NoGesture",
+  "FunDialog_YesGesture",
+  "PlainDialog_NoGesture",
+  "PlainDialog_YesGesture"
 ];
 
 /*
@@ -62,6 +60,8 @@ Condition mod 4 will determine what latin square combination is displayed.
 
 // Below is the within-subjects portion of the experiment.
 // Each condition is shown four videos.
+// Joslyne: We are between-subject so don't think we need this
+/*
 var square_conditions=[];
 switch(mycondition % 4){
   case 0:
@@ -77,6 +77,7 @@ switch(mycondition % 4){
     square_conditions = [3,2,1,0];
     break;
 }
+*/
 
 // Below is the between-subjects portion of the experiment.
 // Each condition is assigned a (action,response) pair.
