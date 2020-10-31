@@ -23,7 +23,7 @@ var pages = [
     "demographics.html",      // demographic information
     "check_video.html",       // checks the users audio and video
     "command_video.html",     // videos
-    "pic_questions.html",         // more questions
+    "pic_questions.html",     // more questions
 ];
 
 psiTurk.preloadPages(pages);
@@ -40,6 +40,7 @@ var intro_vid = "/static/videos/introduction"
 // These variables are prefixes to the paths of the videos we want to show,
 // which change depending on the condition we are randomly assigned.
 var command_vid = ""
+//var command_vid = "/static/videos/PlainDialog_NoGesture"
 var prefix = "/static/videos"
 var cond = ""
 var video_conditions = [
@@ -81,28 +82,30 @@ switch(mycondition % 4){
 
 // Below is the between-subjects portion of the experiment.
 // Each condition is assigned a (action,response) pair.
-if (mycondition < 4) { // Cheat & Question
-    cond = "/response/question/"
-    command_vid = "/static/videos/command/cheat"
+
+if (mycondition == 0) { // PlainDialog_NoGesture
+    //cond = "/response/question/"
+    command_vid = "/static/videos/PlainDialog_NoGesture"
 }
-else if (mycondition >= 4 && mycondition < 8) { // Cheat & Rebuke
-    cond = "/response/rebuke/"
-    command_vid = "/static/videos/command/cheat"
+else if (mycondition == 1) { // PlainDialog_YesGesture
+    //cond = "/response/rebuke/"
+    command_vid = "/static/videos//PlainDialog_YesGesture"
 }
-else if (mycondition >= 8 && mycondition < 12) { // Steal & Question
-    cond = "/response/question/"
-    command_vid = "/static/videos/command/steal"
+else if (mycondition == 2) { // FunDialog_NoGesture
+   // cond = "/response/question/"
+    command_vid = "/static/videos/FunDialog_NoGesture"
 }
-else { // Steal & Rebuke
-    cond = "/response/rebuke/"
-    command_vid = "/static/videos/command/steal"
+else { // FunDialog_YesGesture
+    //cond = "/response/rebuke/"
+    command_vid = "/static/videos/FunDialog_YesGesture"
 }
 
+/*
 var iter = 0; // This keeps track of which video in square_conditions we are currently showing and is updated in the Questions function
 var response_vid = prefix + cond + video_conditions[square_conditions[iter]]; // This builds the path of the video we want to show currently
 var question_label = video_conditions[square_conditions[iter]]; // This is just the label of the video so the database is more readable
 
-
+*/
 /********************
  * HTML manipulation
  *
@@ -308,7 +311,7 @@ var VidCheck = function() {
 
     $("#next").click(function () {
         record_responses();
-        currentview = new IntroVideo();
+        currentview = new CommandVideo();
     });
 };
 
@@ -317,6 +320,7 @@ var VidCheck = function() {
  * Intro Video *
  ***************/
 // You will likely leave this unchanged.
+/*
 var IntroVideo = function() {
 
     psiTurk.finishInstructions();
@@ -378,7 +382,7 @@ var IntroVideo = function() {
         currentview = new Pretest();
     });
 };
-
+*/
 
 /************
  * pretest  *
@@ -389,6 +393,7 @@ The big takeaway here is that in every question asking page you will need to
 make sure the record_responses function is updated with the number of questions
 you have and with the name you want them to appear in the database as.
 */
+/*
 var Pretest = function() {
 
     var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
@@ -454,7 +459,7 @@ var Pretest = function() {
     });
 
 };
-
+/*
 
 /*****************
  * Command Video *
@@ -516,7 +521,7 @@ var CommandVideo = function() {
 
     $("#next").click(function () {
         record_responses();
-        currentview = new ResponseVideo();
+        currentview = new CheckQuestion();
     });
 };
 
@@ -526,6 +531,7 @@ var CommandVideo = function() {
  *****************/
  // This is the video in which the robot issues its response
  // No questions are asked, and no input is required from the user
+/*
 var ResponseVideo = function() {
 
     var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your information. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
@@ -585,7 +591,7 @@ var ResponseVideo = function() {
         currentview = new Questions();
     });
 };
-
+/*
 
 /**************
  * Questions  *
@@ -596,7 +602,7 @@ Note: In a traditional between-subjects experiment this is where we would
 stop and call the Check Question function, however in a within-subjects
 experiment we want to repeat the Command, Response, and Question functions as
 many times as elements in the square_conditions variable.
-*/
+
 var Questions = function() {
 
     var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your information. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
@@ -628,7 +634,7 @@ var Questions = function() {
     };
 
     // Load the questionnaire snippet
-    psiTurk.showPage('questions.html');
+    psiTurk.showPage('pic_questions.html');
     window.scrollTo(0, 0);
     psiTurk.recordTrialData({'phase':'questions', 'status':'begin'});
     //alert("mycondition... "+mycondition+ " = 0? "+(mycondition==0));
@@ -654,7 +660,7 @@ var Questions = function() {
         /*
         This reflects a within-subjets approach. In a between subjects approach
         we would just move to a new CheckQuestion
-        */
+        
         iter += 1;
         if (iter >= 4){
           currentview = new CheckQuestion();
@@ -669,12 +675,13 @@ var Questions = function() {
     });
 
 };
-
+*/
 
 /********************
  * Final Questions   *
  ********************/
 // Some final post-experiment questions about the experiment as a whole.
+/*
 var FinalQuestions = function() {
 
     var error_message = "<h1>Oops!</h1><p>Something went wrong submitting your HIT. This might happen if you lose your internet connection. Press the button to resubmit.</p><button id='resubmit'>Resubmit</button>";
@@ -703,7 +710,7 @@ var FinalQuestions = function() {
 
 
     // Load the questionnaire snippet
-    psiTurk.showPage('last_questions.html');
+    psiTurk.showPage('pic_questions.html');
 
     function hasClass(element, cls) {
         return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
@@ -734,13 +741,14 @@ var FinalQuestions = function() {
     });
 
 };
-
+*/
 
 /******************
  * Check Question *
  ******************/
 // This question ensures that people are paying attention and are not bots
 // Incorrect answers to this question mean we can disregard their submission
+
 var CheckQuestion = function() {
 
     psiTurk.finishInstructions();
@@ -781,7 +789,7 @@ var CheckQuestion = function() {
     };
 
     // Load the questionnaire snippet
-    psiTurk.showPage('check_question.html');
+    psiTurk.showPage('pic_questions.html');
     window.scrollTo(0, 0);
     psiTurk.recordTrialData({'phase':'checkquestion', 'status':'begin'});
 
@@ -801,6 +809,7 @@ var CheckQuestion = function() {
             error: prompt_resubmit});
     });
 };
+
 
 
 /*******************

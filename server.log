@@ -1,0 +1,73 @@
+[2020-10-28 14:56:00 -0600] [24773] [ERROR] Retrying in 1 second.
+[2020-10-28 14:56:01 -0600] [24773] [ERROR] Retrying in 1 second.
+[2020-10-28 14:56:02 -0600] [24773] [ERROR] Retrying in 1 second.
+[2020-10-28 14:56:03 -0600] [24773] [ERROR] Retrying in 1 second.
+[2020-10-28 14:56:04 -0600] [24773] [ERROR] Retrying in 1 second.
+[2020-10-28 14:56:05 -0600] [24773] [ERROR] Can't connect to ('localhost # if testing locally (before heroku deployment)', 22362)
+[2020-10-28 14:57:51 -0600] [24885] [ERROR] Retrying in 1 second.
+[2020-10-28 14:57:52 -0600] [24885] [ERROR] Retrying in 1 second.
+[2020-10-28 14:57:53 -0600] [24885] [ERROR] Retrying in 1 second.
+[2020-10-28 14:57:54 -0600] [24885] [ERROR] Retrying in 1 second.
+[2020-10-28 14:57:55 -0600] [24885] [ERROR] Retrying in 1 second.
+[2020-10-28 14:57:56 -0600] [24885] [ERROR] Can't connect to ('localhost # if testing locally (before heroku deployment)', 22362)
+[2020-10-28 15:06:10 -0600] [25699] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/hcr/Desktop/hriexp/custom.py", line 61
+    try:
+       ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2020-10-28 15:06:24 -0600] [25720] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/hcr/Desktop/hriexp/custom.py", line 61
+    try:
+       ^
+TabError: inconsistent use of tabs and spaces in indentation
+[2020-10-28 15:27:01 -0600] [27810] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 129, in init_process
+    self.load_wsgi()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/workers/base.py", line 138, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/psiturk/experiment_server.py", line 48, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/gunicorn/util.py", line 350, in import_app
+    __import__(module)
+  File "/home/hcr/anaconda3/lib/python3.7/site-packages/psiturk/experiment.py", line 77, in <module>
+    from custom import custom_code
+  File "/home/hcr/Desktop/hriexp/custom.py", line 61
+    try:
+       ^
+TabError: inconsistent use of tabs and spaces in indentation
+2020-10-30 16:24:12,331 hit_assign_worker_id_not_set_in_exp (1003) {'gender': [u'male'], 'age': [u'22']}
